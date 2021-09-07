@@ -1,7 +1,7 @@
 {
   "name": "nanostores-lua",
-  "version": "0.0.0",
-  "description": "a port of nanostores to lua",
+  "version": "0.0.1-1",
+  "description": "a port of nanostores to lua using TypeScriptToLua",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,7 +17,7 @@
     "output:license": "cp ./temp/nanostores/LICENSE ./src/LICENSE",
     "postbuild": "npm-run-all -s output:warning output:transform output:license"
   },
-  "author": "",
+  "author": "cmgriffing",
   "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
