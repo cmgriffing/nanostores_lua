@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/vscode-typescript-to-lua/master/tsconfig-schema.json",
+  "compilerOptions": {
+    "outDir": "./src",
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "**/*.d.ts",
+    "./scripts/*.*",
+    "./node_modules/**/*",
+    "./src/**/*"
+  ],
+  "tstl": {
+    "luaTarget": "JIT",
+    "buildMode": "library"
+  }
+}

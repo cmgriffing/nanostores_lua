@@ -4,12 +4,35 @@
   "description": "a port of nanostores to lua",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "upstream:clean": "rm -rf temp/nanostores",
+    "upstream:clone": "git clone https://github.com/nanostores/nanostores.git temp/nanostores",
+    "upstream:prune": "ts-node scripts/upstream-prune.ts",
+    "upstream:prettier": "prettier --semi true --write ./temp/**/*; exit 0",
+    "upstream:transform": "ts-node scripts/upstream-transform.ts",
+    "prebuild": "npm-run-all -s upstream:clean upstream:clone upstream:prune upstream:prettier upstream:transform",
+    "build": "tstl -p non-main.tsconfig.json; exit 0",
+    "output:warning": "ts-node scripts/output-warning.ts",
+    "output:transform": "ts-node scripts/output-transform.ts",
+    "output:license": "cp ./temp/nanostores/LICENSE ./src/LICENSE",
+    "postbuild": "npm-run-all -s output:warning output:transform output:license"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/glob": "^7.1.4",
+    "@types/inflection": "^1.5.28",
+    "@types/node": "^16.7.10",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7",
+    "inflection": "^1.13.1",
+    "lodash": "^4.17.21",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "ts-morph": "^12.0.0",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.2",
+    "typescript-to-lua": "^1.0.1"
   }
 }
