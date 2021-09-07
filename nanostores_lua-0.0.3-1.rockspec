@@ -1,8 +1,8 @@
 package = "nanostores_lua"
-version = "0.0.1-1"
+version = "0.0.3-1"
 source = {
    url = "git://github.com/cmgriffing/nanostores_lua",
-   tag = "v0.0.1"
+   tag = "v0.0.3"
 }
 description = {
    summary = "A lua port of nanostores",
