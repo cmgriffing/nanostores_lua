@@ -1,7 +1,7 @@
 package = "nanostores_lua"
 version = "0.0.1-1"
 source = {
-   url = "git://github.com/cmgriffing/nanostores-lua",
+   url = "git://github.com/cmgriffing/nanostores_lua",
    tag = "v0.0.1"
 }
 description = {
@@ -9,7 +9,7 @@ description = {
    detailed = [[
       Nanostores is a framework agnostic statemanagement library. This repo ports it to lua using TypeScriptToLua.
    ]],
-   homepage = "http://github.com/cmgriffing/nanostores-lua",
+   homepage = "http://github.com/cmgriffing/nanostores_lua",
    license = "MIT"
 }
 dependencies = {

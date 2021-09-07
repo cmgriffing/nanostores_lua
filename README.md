@@ -1,18 +1,37 @@
-# nanostores-lua
+# nanostores_lua
 
 This repo uses TypeScriptToLua to convert nanostores (a framework agnostic state-management library) to lua since there did not seem to be an existing equivalent.
 
 ## Installation
 
-Luarocks steps
+The easiest way to install is via Luarocks:
 
-... to be continued
+```
+luarocks install nanostores_lua
+```
 
 ## Usage
 
 ```lua
 
--- Not sure yet
+local fooStore = nanostores.createStore(function() fooStore:set("bar") end)
+
+-- subscribing to changes
+fooStore:subscribe(function(foo, fooValue)
+    print("Initial value from a subscription", fooValue)
+end)
+
+-- listen for changes without an initial value
+fooStore:listen(function(foo, fooValue)
+    print("Change from a listener", fooValue)
+end)
+
+-- easy getter
+local value = nanostores:getValue(fooStore)
+print("current foo value", value)
+
+-- setting values
+fooStore:set("baz")
 
 ```
 

@@ -1,5 +1,6 @@
 {
-  "name": "nanostores-lua",
+  "name": "nanostores_lua",
+  "private": true,
   "version": "0.0.1-1",
   "description": "a port of nanostores to lua using TypeScriptToLua",
   "main": "index.js",
