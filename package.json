@@ -14,7 +14,7 @@
     "build": "tstl -p build.tsconfig.json; exit 0",
     "output:warning": "ts-node scripts/output-warning.ts",
     "output:transform": "ts-node scripts/output-transform.ts",
-    "output:license": "cp ./temp/nanostores/LICENSE ./src/LICENSE",
+    "output:license": "cp ./temp/nanostores/LICENSE ./lib/LICENSE",
     "postbuild": "npm-run-all -s output:warning output:transform output:license"
   },
   "author": "cmgriffing",
