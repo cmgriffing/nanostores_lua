@@ -14,7 +14,8 @@ luarocks install nanostores_lua
 
 ```lua
 
-local fooStore = nanostores.createStore(function() fooStore:set("bar") end)
+local fooStore = nanostores:createStore()
+fooStore:set("bar")
 
 -- subscribing to changes
 fooStore:subscribe(function(foo, fooValue)
@@ -34,6 +35,8 @@ print("current foo value", value)
 fooStore:set("baz")
 
 ```
+
+The [nanostores documentation](https://github.com/nanostores/nanostores) can help demonstrate what else is possible even though the syntax is slightly different.
 
 ## Contributing
 
