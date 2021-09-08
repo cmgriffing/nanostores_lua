@@ -4,7 +4,7 @@ local ____exports = {}
 local ____main = require("effect.main")
 local clearEffects = ____main.clearEffects
 ____exports.clean = __TS__Symbol("clean")
-function ____exports.cleanStores(self, ...)
+function ____exports.cleanStores(...)
     local stores = {...}
     if os.getenv("NODE_ENV") == "production" then
         error(
@@ -12,7 +12,7 @@ function ____exports.cleanStores(self, ...)
             0
         )
     end
-    clearEffects(_G)
+    clearEffects()
     for ____, store in ipairs(stores) do
         if store then
             if store.mocked then

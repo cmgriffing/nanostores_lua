@@ -12,6 +12,7 @@
   ],
   "tstl": {
     "luaTarget": "JIT",
-    "buildMode": "library"
+    "buildMode": "library",
+    "noImplicitSelf": true
   }
 }

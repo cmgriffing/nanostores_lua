@@ -2,20 +2,20 @@
 local ____exports = {}
 local ____main = require("get-value.main")
 local getValue = ____main.getValue
-function ____exports.update(self, store, updater)
+function ____exports.update(store, updater)
     store:set(
         updater(
             _G,
-            getValue(_G, store)
+            getValue(store)
         )
     )
 end
-function ____exports.updateKey(self, store, key, updater)
+function ____exports.updateKey(store, key, updater)
     store:setKey(
         key,
         updater(
             _G,
-            getValue(_G, store)[key]
+            getValue(store)[key]
         )
     )
 end

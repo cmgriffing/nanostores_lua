@@ -3,7 +3,7 @@ require("lualib_bundle");
 local ____exports = {}
 local ____main = require("clean-stores.main")
 local clean = ____main.clean
-function ____exports.createStore(self, init)
+function ____exports.createStore(init)
     local currentListeners
     local nextListeners = {}
     local destroy

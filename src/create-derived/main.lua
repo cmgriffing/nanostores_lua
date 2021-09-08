@@ -5,16 +5,15 @@ local ____main = require("create-store.main")
 local createStore = ____main.createStore
 local ____main = require("get-value.main")
 local getValue = ____main.getValue
-function ____exports.createDerived(self, stores, cb)
+function ____exports.createDerived(stores, cb)
     if not __TS__ArrayIsArray(stores) then
         stores = {stores}
     end
     local derived
     derived = createStore(
-        _G,
         function()
             local values = stores:map(
-                function(____, store) return getValue(_G, store) end
+                function(store) return getValue(store) end
             )
             derived:set(
                 cb(
@@ -23,9 +22,9 @@ function ____exports.createDerived(self, stores, cb)
                 )
             )
             local unbinds = stores:map(
-                function(____, store, index)
+                function(store, index)
                     return store:listen(
-                        function(____, value)
+                        function(value)
                             values[index] = value
                             derived:set(
                                 cb(

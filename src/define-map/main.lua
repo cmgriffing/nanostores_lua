@@ -5,14 +5,13 @@ local ____main = require("create-map.main")
 local createMap = ____main.createMap
 local ____main = require("clean-stores.main")
 local clean = ____main.clean
-function ____exports.defineMap(self, init)
+function ____exports.defineMap(init)
     local Builder
-    Builder = function(____, id, ...)
+    Builder = function(id, ...)
         local args = {...}
         if not Builder.cache[id] then
             local store
             store = createMap(
-                _G,
                 function()
                     store:setKey("id", id)
                     local destroy
