@@ -15,11 +15,12 @@ nanostoreFiles.forEach((file) => {
   const newFileContents = fileContents
     .replace(new RegExp("Builder\\.", "gm"), "(Builder as any).")
     .replace(new RegExp("\\.js", "gm"), "")
-    .replace(new RegExp("store\\.", "gm"), "(store as any).");
+    .replace(new RegExp("store\\.", "gm"), "(store as any).")
+    .replace(new RegExp("/index", "gm"), "/main");
 
   fs.writeFileSync(file, newFileContents);
 
-  const newFileName = file.replace(".js", ".ts");
+  const newFileName = file.replace(".js", ".ts").replace("index", "main");
   fs.renameSync(file, newFileName);
 });
 
