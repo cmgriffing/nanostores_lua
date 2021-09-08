@@ -1,7 +1,7 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
 local ____exports = {}
-local ____main = require("get-value.main")
-local getValue = ____main.getValue
+local ____init = require("get-value")
+local getValue = ____init.getValue
 function ____exports.update(store, updater)
     store:set(
         updater(

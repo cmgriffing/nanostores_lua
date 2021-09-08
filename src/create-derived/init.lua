@@ -1,10 +1,10 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
 require("lualib_bundle");
 local ____exports = {}
-local ____main = require("create-store.main")
-local createStore = ____main.createStore
-local ____main = require("get-value.main")
-local getValue = ____main.getValue
+local ____init = require("create-store")
+local createStore = ____init.createStore
+local ____init = require("get-value")
+local getValue = ____init.getValue
 function ____exports.createDerived(stores, cb)
     if not __TS__ArrayIsArray(stores) then
         stores = {stores}

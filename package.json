@@ -1,7 +1,7 @@
 {
   "name": "nanostores_lua",
   "private": true,
-  "version": "0.0.5-1",
+  "version": "0.0.6-1",
   "description": "a port of nanostores to lua using TypeScriptToLua",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

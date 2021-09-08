@@ -1,10 +1,10 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
 require("lualib_bundle");
 local ____exports = {}
-local ____main = require("create-map.main")
-local createMap = ____main.createMap
-local ____main = require("clean-stores.main")
-local clean = ____main.clean
+local ____init = require("create-map")
+local createMap = ____init.createMap
+local ____init = require("clean-stores")
+local clean = ____init.clean
 function ____exports.defineMap(init)
     local Builder
     Builder = function(id, ...)

@@ -1,43 +1,19 @@
 --[[ Generated with https://github.com/TypeScriptToLua/TypeScriptToLua ]]
 require("lualib_bundle");
 local ____exports = {}
-local ____main = require("clean-stores.main")
-local clean = ____main.clean
-function ____exports.createMap(init)
+local ____init = require("clean-stores")
+local clean = ____init.clean
+function ____exports.createStore(init)
     local currentListeners
     local nextListeners = {}
     local destroy
     local store
     store = {
-        active = false,
-        value = {},
-        set = function(self, newObject)
-            for key in pairs(newObject) do
-                store:setKey(key, newObject[key])
-            end
-            for key in pairs(store.value) do
-                if not (newObject[key] ~= nil) then
-                    store:setKey(key)
-                end
-            end
-        end,
-        setKey = function(self, key, newValue)
-            if store.value then
-                if type(newValue) == "nil" then
-                    if store.value[key] ~= nil then
-                        __TS__Delete(store.value, key)
-                        store:notify(key)
-                    end
-                elseif store.value[key] ~= newValue then
-                    store.value[key] = newValue
-                    store:notify(key)
-                end
-            end
-        end,
-        notify = function(self, changedKey)
+        set = function(self, newValue)
+            store.value = newValue
             currentListeners = nextListeners
             for ____, listener in __TS__Iterator(currentListeners) do
-                listener(_G, store.value, changedKey)
+                listener(_G, store.value)
             end
         end,
         subscribe = function(self, listener)
@@ -48,7 +24,6 @@ function ____exports.createMap(init)
         listen = function(self, listener)
             if not store.active then
                 store.active = true
-                store.value = {}
                 if init then
                     destroy = init(_G)
                 end
@@ -71,8 +46,8 @@ function ____exports.createMap(init)
                                 if destroy then
                                     destroy(_G)
                                 end
-                                store.active = false
                                 destroy = nil
+                                store.active = nil
                             end
                         end,
                         1000
@@ -86,7 +61,7 @@ function ____exports.createMap(init)
             if destroy then
                 destroy(_G)
             end
-            store.active = nil
+            store.active = false
             store.value = nil
             nextListeners = {}
             destroy = nil
